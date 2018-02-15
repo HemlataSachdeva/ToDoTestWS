@@ -1,0 +1,40 @@
+var mainApp = angular.module('myApp', []);
+
+
+var toDoList=[{task:'exsercise',done:false,status:false},
+	 {task:'sleep on tym',done:false,status:false},
+	 {task:'eat fruits',done:false,status:false}];
+
+
+ mainApp.controller('TodoCntrl',function($scope){
+ $scope.todo = toDoList;
+ $scope.addTodo=function(){
+ 
+// $scope.todo.push({task:$scope.mtask,done:false,status:false});
+ 
+ 
+	 $http.post('/addTodo', $scope.mtask)
+		.success(function(data) {
+			$scope.todo = data;
+		});
+		res.error(function(data, status, headers, config) {
+			alert( "failure message: " + JSON.stringify({data: data}));
+		});		
+ 
+ };
+ $scope.removeTask=function(index){
+ $scope.todo.splice(index, 1)
+ 
+ 
+ 
+ };
+ $scope.complted=function(index){
+ $scope.todo[index]={task:$scope.todo[index].task,done:true,status:true};
+
+
+ 
+ 
+ };
+ 
+ 
+ });

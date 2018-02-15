@@ -1,0 +1,145 @@
+<!-- <!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="todoCtrl">
+
+<h2>My Todo List</h2>
+
+<form ng-submit="todoAdd()">
+    <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+    <input type="submit" value="Add New">
+</form>
+
+<br>
+
+<div ng-repeat="x in todoList">
+    <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+</div>
+
+<p><button ng-click="remove()">Remove marked</button></p>
+
+<script>
+var app = angular.module('myApp', []); 
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [{todoText:'Clean House', done:false}];
+
+    $scope.todoAdd = function() {
+        $scope.todoList.push({todoText:$scope.todoInput, done:false});
+        $scope.todoInput = "";
+    };
+
+    $scope.remove = function() {
+        var oldList = $scope.todoList;
+        $scope.todoList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.todoList.push(x);
+        });
+    };
+});
+</script>
+
+</body>
+</html>
+ -->
+ 
+ 
+ <!doctype html>
+<html ng-app="myApp">
+  <head>
+    <title>to do list</title>
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="angular.js"></script>
+    <script src="Todocntrl.js"></script>
+ <style>
+        .strike {
+    text-decoration: line-through;
+        }
+    </style>
+ <script type="text/javascript">
+ /* var mainApp=angular.module("myApp",[]);
+ 
+ var toDoList=[{task:'exsercise',done:false,status:false},
+	 {task:'sleep on tym',done:false,status:false},
+	 {task:'eat fruits',done:false,status:false}];
+ 
+ 
+ 
+ 
+ mainApp.controller('myCtrl',function($scope){
+ $scope.todo = toDoList;
+ $scope.addTodo=function(){
+ 
+// $scope.todo.push({task:$scope.mtask,done:false,status:false});
+ 
+ 
+	 $http.post('/addTodo', $scope.mtask)
+		.success(function(data) {
+			$scope.todo = data;
+		});
+		res.error(function(data, status, headers, config) {
+			alert( "failure message: " + JSON.stringify({data: data}));
+		});		
+ 
+ };
+ $scope.removeTask=function(index){
+ $scope.todo.splice(index, 1)
+ 
+ 
+ 
+ };
+ $scope.complted=function(index){
+ $scope.todo[index]={task:$scope.todo[index].task,done:true,status:true};
+
+
+ 
+ 
+ };
+ 
+ 
+ });
+ */ </script>
+  </head>
+  <body ng-controller="TodoCntrl">
+<h1 align="center">TO DO TASK
+
+</h1>
+<div class="form-group col-sm-4">
+<input type="text" id="entertask" class="form-control input-sm-6" ng-model="mtask"/>
+<br/>
+<input type="button" id="addtask" value="Add Todo" class="btn btn-primary" ng-click="addTodo()"/>
+ 
+</div>
+  <table class="table table-striped" >
+  <thead>
+  <tr>
+  
+  <th>My Task</th>
+  <th></th>
+  </tr>
+  </thead>
+  <tbody>
+<tr ng-repeat="mytask in todo">
+<td>{{$index+1}}</td>
+<td><span ng-class="{strike:mytask.status }" ng-bind="mytask.task"></span></td>
+<td><button type="button" id="complted" ng-click="complted($index)" class="btn btn-success btn-sm">
+           Mark completed
+        </button>
+</td>
+<td><button type="button" id="removetask" ng-click="removeTask($index)" class="btn btn-failure btn-sm">
+          <span class="glyphicon glyphicon-remove-circle"></span> Delete
+        </button>
+</td>
+
+</tr>
+  </tbody>
+  
+  </table>
+  
+  </body>
+
+</html>
+
+
+ 

@@ -1,0 +1,19 @@
+package com.todo;
+
+import java.util.ArrayList;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+public class TodoController {
+	
+	@RequestMapping("/todo")
+    public TaskDto helloWorld(TaskDto data) {
+		
+		ArrayList<TaskDto> todoList= new ArrayList<TaskDto>();
+		todoList.add(data);        
+        return data;
+        		
+	}
+
+}

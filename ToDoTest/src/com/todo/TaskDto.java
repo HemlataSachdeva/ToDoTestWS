@@ -1,0 +1,28 @@
+package com.todo;
+
+public class TaskDto {
+
+	private String task;
+	private Boolean done;
+	private Boolean status;
+	public String getTask() {
+		return task;
+	}
+	public void setTask(String task) {
+		this.task = task;
+	}
+	public Boolean getDone() {
+		return done;
+	}
+	public void setDone(Boolean done) {
+		this.done = done;
+	}
+	public Boolean getStatus() {
+		return status;
+	}
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+	
+	
+}
